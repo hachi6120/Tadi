@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/drawable_background_while">
+
+    <TextView
+        android:id="@+id/item_tvtile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="THÊM TÀI KHOẢN"
+        android:textAlignment="center"
+        android:textSize="40dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_themnhanvien_til_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_themnhanvien_txtnameuser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên tài khoản" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_themnhanvien_til_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_themnhanvien_txtname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Họ tên" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_themnhanvien_til_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_themnhanvien_txtsdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số điện thoại" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_themnhanvien_til_cccd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_themnhanvien_txtcccd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số căn cước công dân" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_themnhanvien_til_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_themnhanvien_txtpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mật khẩu" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialog_themnhanvien_btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#ffde03"
+            android:text="Thêm"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/dialog_themnhanvien_btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#B00020"
+            android:text="Huỷ" />
+    </LinearLayout>
+
+</LinearLayout>
