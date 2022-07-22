@@ -3,18 +3,18 @@ package com.example.tadi.Model;
 public class DonHang {
 
     private int maDon;
-    private String maSP;
+    private int maSP;
     private String maND;
     private String maQL;
     private int soLuongMua;
-    private int sizeDathang;
+    private String sizeDathang;
     private String thoiGian;
     private int trangThai;
 
     public DonHang() {
     }
 
-    public DonHang(int maDon, String maSP, String maND, String maQL, int soLuongMua, int sizeDathang, String thoiGian, int trangThai) {
+    public DonHang(int maDon, int maSP, String maND, String maQL, int soLuongMua, String sizeDathang, String thoiGian, int trangThai) {
         this.maDon = maDon;
         this.maSP = maSP;
         this.maND = maND;
@@ -33,11 +33,11 @@ public class DonHang {
         this.maDon = maDon;
     }
 
-    public String getMaSP() {
+    public int getMaSP() {
         return maSP;
     }
 
-    public void setMaSP(String maSP) {
+    public void setMaSP(int maSP) {
         this.maSP = maSP;
     }
 
@@ -65,11 +65,11 @@ public class DonHang {
         this.soLuongMua = soLuongMua;
     }
 
-    public int getSizeDathang() {
+    public String getSizeDathang() {
         return sizeDathang;
     }
 
-    public void setSizeDathang(int sizeDathang) {
+    public void setSizeDathang(String sizeDathang) {
         this.sizeDathang = sizeDathang;
     }
 

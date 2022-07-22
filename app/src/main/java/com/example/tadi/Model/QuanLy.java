@@ -6,16 +6,18 @@ public class QuanLy {
     private String tenQL;
     private String sdtQL;
     private String CCCD;
+    private byte[] avatarNhanVien;
 
     public QuanLy() {
     }
 
-    public QuanLy(String maQL, String matKhauQL, String tenQL, String sdtQL, String CCCD) {
+    public QuanLy(String maQL, String matKhauQL, String tenQL, String sdtQL, String CCCD, byte[] avatarNhanVien) {
         this.maQL = maQL;
         this.matKhauQL = matKhauQL;
         this.tenQL = tenQL;
         this.sdtQL = sdtQL;
         this.CCCD = CCCD;
+        this.avatarNhanVien = avatarNhanVien;
     }
 
     public String getMaQL() {
@@ -56,5 +58,13 @@ public class QuanLy {
 
     public void setCCCD(String CCCD) {
         this.CCCD = CCCD;
+    }
+
+    public byte[] getAvatarNhanVien() {
+        return avatarNhanVien;
+    }
+
+    public void setAvatarNhanVien(byte[] avatarNhanVien) {
+        this.avatarNhanVien = avatarNhanVien;
     }
 }

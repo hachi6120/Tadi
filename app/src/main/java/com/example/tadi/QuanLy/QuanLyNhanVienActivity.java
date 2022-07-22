@@ -1,12 +1,14 @@
-package com.example.tadi;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.tadi.QuanLy;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -14,17 +16,24 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.tadi.Adapter.AdapterNhanVien;
 import com.example.tadi.DAO.QuanLyDao;
 import com.example.tadi.Model.QuanLy;
+import com.example.tadi.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
 
 public class QuanLyNhanVienActivity extends AppCompatActivity {
@@ -33,6 +42,7 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
     // cùng 1 FloatingActionButton để thêm nhân viên
 
     EditText txtMaNV,txtTenNV,txtSdtNV,txtCccdNV,txtMkNV;
+    ImageView avatarNV;
     TextInputLayout tilMaNV,tilTenNV,tilSdtNV,tilCccdNV,tilMkNV;
     FloatingActionButton fab;
     List<QuanLy> quanLyList;
@@ -42,6 +52,7 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
     ListView listView;
     int a;
     int temp=0;
+    int REQUEST_CODE_FOLDER = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +87,7 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
     public void loadTable(){
         quanLyDao = new QuanLyDao();
         quanLyList = quanLyDao.getAll();
-        adapterNhanVien = new AdapterNhanVien(this,R.layout.item_lv_nhanviem,quanLyList);
+        adapterNhanVien = new AdapterNhanVien(this, R.layout.item_lv_nhanviem,quanLyList);
         listView.setAdapter(adapterNhanVien);
     }
 
@@ -117,19 +128,36 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
         tilCccdNV = dialog.findViewById(R.id.dialog_themnhanvien_til_cccd);
         tilMkNV = dialog.findViewById(R.id.dialog_themnhanvien_til_pass);
 
+        avatarNV = dialog.findViewById(R.id.dialog_themnhanvien_avatar);
+
         Button btnadd = dialog.findViewById(R.id.dialog_themnhanvien_btn_add);
         Button btncancel = dialog.findViewById(R.id.dialog_themnhanvien_btn_cancel);
 
         if (a==-1){
+            avatarNV.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivityForResult(intent,REQUEST_CODE_FOLDER);
+                }
+            });
             btnadd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //Chỗ này insert nhân viên. viết vứt vào đây...
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) avatarNV.getDrawable();
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
+                    byte[] avatar = byteArray.toByteArray();
+
                     QuanLy quanLy = new QuanLy(txtMaNV.getText().toString()
                             ,txtMkNV.getText().toString()
                             ,txtTenNV.getText().toString()
                             ,txtSdtNV.getText().toString()
-                            ,txtCccdNV.getText().toString());
+                            ,txtCccdNV.getText().toString()
+                            ,avatar);
                     try {
                         quanLyDao.Insert(quanLy);
                         Toast.makeText(QuanLyNhanVienActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
@@ -160,6 +188,10 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
             txtCccdNV.setText(quanLy.getCCCD());
             txtMkNV.setText(quanLy.getMatKhauQL());
 
+            byte[] hinhAnh = quanLy.getAvatarNhanVien();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0,hinhAnh.length);
+            avatarNV.setImageBitmap(bitmap);
+
             btnadd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -171,7 +203,6 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
                     quanLy.setSdtQL(txtSdtNV.getText().toString());
                     quanLy.setCCCD(txtCccdNV.getText().toString());
                     quanLy.setMatKhauQL(txtMkNV.getText().toString());
-                    Log.e("a",""+quanLy.getMaQL());
 
                     try {
                         quanLyDao.Updata(quanLy);
@@ -238,5 +269,21 @@ public class QuanLyNhanVienActivity extends AppCompatActivity {
         }else{
             tilTenNV.setError("");
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode ==REQUEST_CODE_FOLDER && resultCode==RESULT_OK && data!=null){
+            Uri uri = data.getData();
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                avatarNV.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

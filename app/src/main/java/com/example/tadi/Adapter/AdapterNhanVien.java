@@ -1,16 +1,19 @@
 package com.example.tadi.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tadi.Model.QuanLy;
+import com.example.tadi.R;
 
 import java.util.List;
-import com.example.tadi.R;
 
 public class AdapterNhanVien extends ArrayAdapter<QuanLy> {
 
@@ -38,6 +41,7 @@ public class AdapterNhanVien extends ArrayAdapter<QuanLy> {
             holder.tvpass = (TextView)convertView.findViewById(R.id.item_lv_nhanvien_pass);
             holder.tvsdt = (TextView)convertView.findViewById(R.id.item_lv_nhanvien_sdt);
             holder.tvcccd = (TextView)convertView.findViewById(R.id.item_lv_nhanvien_cccd);
+            holder.avatarNV = (ImageView) convertView.findViewById(R.id.item_lv_nhanvien_avatar);
             convertView.setTag(holder);
         }else{
             holder =(ViewHolder) convertView.getTag();
@@ -52,11 +56,17 @@ public class AdapterNhanVien extends ArrayAdapter<QuanLy> {
         holder.tvpass.setText("Mật Khẩu: "+a);
         holder.tvsdt.setText("Số Điện Thoại: "+obj.getSdtQL());
         holder.tvcccd.setText("Căn Cước Công Dân: "+obj.getCCCD());
+
+        byte[] hinhAnh = obj.getAvatarNhanVien();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0,hinhAnh.length);
+        holder.avatarNV.setImageBitmap(bitmap);
+
         a="";
         return convertView;
     }
 
     public class ViewHolder{
         TextView tvusername,tvname,tvpass,tvsdt,tvcccd;
+        ImageView avatarNV;
     }
 }

@@ -3,7 +3,6 @@ package com.example.tadi.Model;
 public class SanPham {
     private int maSP;
     private int maLoai;
-    private int maSize;
     private String tenSP;
     private int giaNhap;
     private int giaBan;
@@ -12,15 +11,17 @@ public class SanPham {
     private String chatLieu;
     private String mauSac;
     private String moTa;
+    private int soLuongSizeS;
+    private int soLuongSizeM;
+    private int soLuongSizeL;
     private byte[] imgSP;
 
     public SanPham() {
     }
 
-    public SanPham(int maSP, int maLoai, int maSize, String tenSP, int giaNhap, int giaBan, int soLuong, String nhaSX, String chatLieu, String mauSac, String moTa, byte[] imgSP) {
+    public SanPham(int maSP, int maLoai, String tenSP, int giaNhap, int giaBan, int soLuong, String nhaSX, String chatLieu, String mauSac, String moTa, int soLuongSizeS, int soLuongSizeM, int soLuongSizeL, byte[] imgSP) {
         this.maSP = maSP;
         this.maLoai = maLoai;
-        this.maSize = maSize;
         this.tenSP = tenSP;
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
@@ -29,6 +30,9 @@ public class SanPham {
         this.chatLieu = chatLieu;
         this.mauSac = mauSac;
         this.moTa = moTa;
+        this.soLuongSizeS = soLuongSizeS;
+        this.soLuongSizeM = soLuongSizeM;
+        this.soLuongSizeL = soLuongSizeL;
         this.imgSP = imgSP;
     }
 
@@ -46,14 +50,6 @@ public class SanPham {
 
     public void setMaLoai(int maLoai) {
         this.maLoai = maLoai;
-    }
-
-    public int getMaSize() {
-        return maSize;
-    }
-
-    public void setMaSize(int maSize) {
-        this.maSize = maSize;
     }
 
     public String getTenSP() {
@@ -118,6 +114,30 @@ public class SanPham {
 
     public void setMoTa(String moTa) {
         this.moTa = moTa;
+    }
+
+    public int getSoLuongSizeS() {
+        return soLuongSizeS;
+    }
+
+    public void setSoLuongSizeS(int soLuongSizeS) {
+        this.soLuongSizeS = soLuongSizeS;
+    }
+
+    public int getSoLuongSizeM() {
+        return soLuongSizeM;
+    }
+
+    public void setSoLuongSizeM(int soLuongSizeM) {
+        this.soLuongSizeM = soLuongSizeM;
+    }
+
+    public int getSoLuongSizeL() {
+        return soLuongSizeL;
+    }
+
+    public void setSoLuongSizeL(int soLuongSizeL) {
+        this.soLuongSizeL = soLuongSizeL;
     }
 
     public byte[] getImgSP() {

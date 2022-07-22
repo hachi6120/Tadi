@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/drawable_background_while">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:padding="10dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_launcher_background"
+            android:id="@+id/dialog_home_sp_avatar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dialog_home_sp_tensp"
+                android:text="Ten San Pham"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Giá nhập"
+                    android:gravity="center"
+                    android:id="@+id/dialog_home_sp_gianhap"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá bán"
+                    android:gravity="center"
+                    android:id="@+id/dialog_home_sp_giaban"
+                    android:textSize="16dp"
+                    android:textColor="#ff0000"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Size: "
+                    android:textSize="20dp"
+                    />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="S"
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/dialog_home_sp_btns"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="m"
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/dialog_home_sp_btnm"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="L"
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/dialog_home_sp_btnl"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/dialog_home_sp_LNsize"
+                >
+                <TextView
+                    android:layout_width="57dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    />
+                <TextView
+                    android:background="@drawable/custom_input"
+                    android:id="@+id/dialog_home_sp_s"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="S"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_marginStart="19.5dp"
+                    android:background="@drawable/custom_input"
+                    android:id="@+id/dialog_home_sp_m"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:text="M"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_marginStart="19.5dp"
+                    android:background="@drawable/custom_input"
+                    android:id="@+id/dialog_home_sp_l"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="L"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/dialog_home_sp_LNsoluong"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số Lượng: "
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:layout_width="22dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/dialog_home_sp_trusl"/>
+
+                <EditText
+                    android:id="@+id/dialog_home_sp_soluongmua"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_input"
+                    android:inputType="number"
+                    android:textSize="20dp"
+                    android:text="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="22dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/dialog_home_sp_congsl"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dialog_home_sp_mau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Màu Sắc"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/dialog_home_sp_chatlieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="4dp"
+            android:text="Chất Liệu"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dialog_home_sp_loai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Loại"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/dialog_home_sp_nhasx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nha SX"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/dialog_home_sp_mota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="mo ta" />
+
+    <ImageButton
+        android:id="@+id/dialog_home_sp_xn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:src="@android:drawable/stat_sys_warning" />
+</LinearLayout>

@@ -23,12 +23,13 @@ public class QuanLyDao {
     public void Insert(QuanLy objUser) throws Exception {
         try {
             if (this.connection != null){
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT NhanVien(maNhanVien,tenNhanVien,sdt,cccd,maKhau) VALUES (?,?,?,?,?)");
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT NhanVien(maNhanVien,tenNhanVien,sdt,cccd,maKhau,avatarNhanVien) VALUES (?,?,?,?,?,?)");
                 preparedStatement.setString(1,objUser.getMaQL());
                 preparedStatement.setString(2,objUser.getTenQL());
                 preparedStatement.setString(3,objUser.getSdtQL());
                 preparedStatement.setString(4,objUser.getCCCD());
                 preparedStatement.setString(5,objUser.getMatKhauQL());
+                preparedStatement.setBytes(6,objUser.getAvatarNhanVien());
                 preparedStatement.execute();
             }
         }
@@ -84,6 +85,7 @@ public class QuanLyDao {
                     objCat.setSdtQL(resultSet.getString("sdt"));
                     objCat.setCCCD(resultSet.getString("cccd"));
                     objCat.setMatKhauQL(resultSet.getString("maKhau"));
+                    objCat.setAvatarNhanVien(resultSet.getBytes("avatarNhanVien"));
                     listCat.add(objCat);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
@@ -94,5 +96,27 @@ public class QuanLyDao {
         return  listCat;
     }
 
+    public int checkLogin(String id, String password){
+        List<QuanLy> list = new ArrayList<>();
+        try {
+            if (this.connection != null) {
+                String sqlQuery = "SELECT * FROM NhanVien WHERE maNhanVien='"+id+"' AND maKhau='"+password+"'";
+                Statement statement = this.connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(sqlQuery);
+                while (resultSet.next()) {
+                    QuanLy objCat = new QuanLy();
+                    objCat.setMaQL(resultSet.getString("maNhanVien"));
+                    objCat.setMatKhauQL(resultSet.getString("maKhau"));
+                    list.add(objCat);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (list.size()==0){
+            return -1;
+        }
+        return 1;
+    }
 
 }

@@ -39,4 +39,9 @@ public class LoaiSP {
     public void setSanPhams(List<SanPham> sanPhams) {
         this.sanPhams = sanPhams;
     }
+
+    @Override
+    public String toString() {
+        return  "Mã: " + maLoai + " |Tên: " + tenLoai;
+    }
 }

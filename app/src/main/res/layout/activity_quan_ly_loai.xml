@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".QuanLy.QuanLyNhanVienActivity">
+    tools:context=".QuanLy.QuanLyLoaiActivity">
+
     <ListView
-        android:id="@+id/quanlynhanvien_listview"
+        android:id="@+id/quanlyloai_listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
@@ -24,7 +24,7 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/quanlynhanvien_fab"
+        android:id="@+id/quanlyloai_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_input_add"

@@ -8,11 +8,12 @@ public class NguoiDung {
     private String diaChiND;
     private int tuoiND;
     private String email;
+    private byte[] imgND;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(String maND, String matKhauND, String tenND, String sdtND, String diaChiND, int tuoiND, String email) {
+    public NguoiDung(String maND, String matKhauND, String tenND, String sdtND, String diaChiND, int tuoiND, String email, byte[] imgND) {
         this.maND = maND;
         this.matKhauND = matKhauND;
         this.tenND = tenND;
@@ -20,6 +21,7 @@ public class NguoiDung {
         this.diaChiND = diaChiND;
         this.tuoiND = tuoiND;
         this.email = email;
+        this.imgND = imgND;
     }
 
     public String getMaND() {
@@ -76,5 +78,13 @@ public class NguoiDung {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public byte[] getImgND() {
+        return imgND;
+    }
+
+    public void setImgND(byte[] imgND) {
+        this.imgND = imgND;
     }
 }

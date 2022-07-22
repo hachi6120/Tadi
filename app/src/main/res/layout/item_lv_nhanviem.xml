@@ -2,36 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_lv_nhanvien_tennv"
-        />
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/item_lv_nhanvien_avatar"
+        android:src="@drawable/ic_launcher_background"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/item_lv_nhanvien_manv"
-            android:layout_weight="2"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/item_lv_nhanvien_tennv"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/item_lv_nhanvien_manv"
+                android:layout_weight="2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/item_lv_nhanvien_pass"
+                android:layout_weight="1"/>
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/item_lv_nhanvien_pass"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/item_lv_nhanvien_sdt"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_lv_nhanvien_cccd"
+            />
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_lv_nhanvien_sdt"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/item_lv_nhanvien_cccd"
-        />
 
 </LinearLayout>

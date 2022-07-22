@@ -1,17 +1,15 @@
 package com.example.tadi.Adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tadi.Model.LoaiSP;
-import com.example.tadi.Model.SanPham;
 import com.example.tadi.R;
 
 import java.util.List;
@@ -19,9 +17,9 @@ import java.util.List;
 public class AdapterLoaiSanPham extends RecyclerView.Adapter<AdapterLoaiSanPham.LoaiSanPhamViewHolder> {
 
     private List<LoaiSP> loaiSPList;
-    private Context context;
-
-    public AdapterLoaiSanPham(Context context) {
+    private Activity context;
+    private String user;
+    public AdapterLoaiSanPham(Activity context) {
         this.context = context;
     }
 
@@ -48,7 +46,7 @@ public class AdapterLoaiSanPham extends RecyclerView.Adapter<AdapterLoaiSanPham.
         holder.rcvSanPham.setLayoutManager(linearLayoutManager);
 
         AdapterSanPham adapterSanPham  = new AdapterSanPham();
-        adapterSanPham.setData(loaiSP.getSanPhams());
+        adapterSanPham.setData(context,loaiSP.getSanPhams());
         holder.rcvSanPham.setAdapter(adapterSanPham);
     }
 
